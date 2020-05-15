@@ -1,0 +1,8 @@
+<h1>Workouts<h1>
+
+    <h2>Not Bad...<h2>
+
+<% @workouts.each do |w| %>
+        <h3>Date:<a href="/workouts/<%= w.id %>"><%= w.date %></a><h3>
+        <h3>Total points:<%= w.points_total %><h3>
+<% end %>
