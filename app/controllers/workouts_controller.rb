@@ -8,12 +8,20 @@ class WorkoutsController < ApplicationController
 
   # GET: /workouts/new
   get "/workouts/new" do
+    @excercises = Excercise.all
     erb :"/workouts/new.html"
   end
 
   # POST: /workouts
-  post "/workouts" do
-    redirect "/workouts"
+  post "/workouts" do    
+    workout = Workout.new(params)
+    if !workout.date.empty?
+      workout.save
+      redirect "/workouts"
+    else
+      @error = "Please enter a date."
+      erb :"/workouts/new.html"
+    end
   end
 
   # GET: /workouts/5
@@ -24,12 +32,16 @@ class WorkoutsController < ApplicationController
 
   # GET: /workouts/5/edit
   get "/workouts/:id/edit" do
+    @workout = Workout.find(params[:id])
     erb :"/workouts/edit.html"
   end
 
   # PATCH: /workouts/5
   patch "/workouts/:id" do
-    redirect "/workouts/:id"
+    binding.pry
+    workout = Workout.find(params[:id])
+    workout.update(date: params[:workout][:date])
+    redirect "/workouts"
   end
 
   # DELETE: /workouts/5/delete
