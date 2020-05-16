@@ -6,14 +6,13 @@ class UsersController < ApplicationController
   end
 
   post "/login" do
-    binding.pry
     user = User.find_by(name: params[:name])
-    if user && user.authenticate(params[:password_digest])
+    if user && user.authenticate(params[:password])
       session[:user_id] = user.id     
       redirect "/workouts"
     else 
       @error = "Username or password is incorrect."
-      erb :"/login"
+      erb :"/users/login.html"
     end     
   end
 
@@ -25,7 +24,7 @@ class UsersController < ApplicationController
   # POST: /users
   post "/signup" do
     @user = User.new(params)
-    if @user.name.empty? || @user.password_digest.empty?
+    if @user.name.empty? || @user.password.empty?
       @error = "Username and password need to be filled in."
       erb :"/signup"
     elsif User.find_by(name: @user.name)

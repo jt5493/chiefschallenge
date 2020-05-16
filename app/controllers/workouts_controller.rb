@@ -15,7 +15,7 @@ class WorkoutsController < ApplicationController
 
   # POST: /workouts
   post "/workouts" do    
-    workout = Workout.new(params)
+    workout = Workout.new(date: params[:date], user_id: session[:user_id])
     if !workout.date.empty?
       workout.save
       redirect "/workouts"
