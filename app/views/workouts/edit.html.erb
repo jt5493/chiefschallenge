@@ -1,7 +1,7 @@
 <h1>Edit a Workout</h1>
 <%= @error %>
 
-<form action="/workouts/<%= @workout.id %>" method="POST">
+<form action="/workouts/<%=@workout.id%>" method="POST">
   <input type="hidden" name="_method" value="patch">
   <label>Workout Date:</label>
   <input type="text" name="workout[date]">
@@ -16,3 +16,4 @@
 
 <input type="submit" value=" Submit Change ">
 </form>
+

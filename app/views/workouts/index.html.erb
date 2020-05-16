@@ -7,5 +7,7 @@
 <% @workouts.each do |w| %>
         <h3>Date:<a href="/workouts/<%= w.id %>"><%= w.date %></a><h3>
         <h3>Total points:<%= w.points_total %><h3>
-        <a href="/workouts/<%=w.id%>/edit">Edit</a>   
+        <a href="/workouts/<%=w.id%>/edit">Edit</a> 
+        
+        
 <% end %>

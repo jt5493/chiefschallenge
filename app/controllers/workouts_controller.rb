@@ -26,6 +26,7 @@ class WorkoutsController < ApplicationController
 
   # GET: /workouts/5
   get "/workouts/:id" do
+    
     @workout = Workout.find(params[:id])
     erb :"/workouts/show.html"
   end
@@ -38,14 +39,16 @@ class WorkoutsController < ApplicationController
 
   # PATCH: /workouts/5
   patch "/workouts/:id" do
-    binding.pry
     workout = Workout.find(params[:id])
     workout.update(date: params[:workout][:date])
     redirect "/workouts"
   end
 
+
   # DELETE: /workouts/5/delete
-  delete "/workouts/:id/delete" do
+  delete "/workouts/:id/delete" do    
+    workout = Workout.find(params[:id])
+    workout.destroy
     redirect "/workouts"
   end
 end
