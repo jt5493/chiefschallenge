@@ -2,8 +2,9 @@ class WorkoutsController < ApplicationController
 
   # GET: /workouts
   get "/workouts" do
-    @workouts = Workout.all
-    erb :"/workouts/index.html"
+    user = User.find_by_id(session[:user_id])
+    @workouts = user.workouts
+    erb :"/workouts/index.html"                                           
   end
 
   # GET: /workouts/new
@@ -46,9 +47,9 @@ class WorkoutsController < ApplicationController
 
 
   # DELETE: /workouts/5/delete
-  delete "/workouts/:id/delete" do    
-    workout = Workout.find(params[:id])
-    workout.delete
+  delete "/workouts/:id/delete" do   
+    @workout = Workout.find(params[:id])
+    @workout.destroy
     redirect "/workouts"
   end
 end
