@@ -48,7 +48,7 @@ class WorkoutsController < ApplicationController
   # DELETE: /workouts/5/delete
   delete "/workouts/:id/delete" do    
     workout = Workout.find(params[:id])
-    workout.destroy
+    workout.delete
     redirect "/workouts"
   end
 end

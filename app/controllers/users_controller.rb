@@ -6,13 +6,24 @@ class UsersController < ApplicationController
   end
 
   # GET: /users/new
-  get "/users/new" do
-    erb :"/users/new.html"
+  get "/signup" do
+    erb :"/users/signup.html"
   end
 
   # POST: /users
-  post "/users" do
-    redirect "/users"
+  post "/signup" do
+    @user = User.new(params)
+    if @user.name.empty? || @user.password_digest.empty?
+      @error = "Username and password need to be filled in."
+      erb :"/signup"
+    elsif User.find_by(name: @user.name)
+      @error = "That account exists already."
+      erb :"/signup"
+    else 
+      @user.save 
+      session[:user_id] = @user.id     
+      redirect "/workouts"
+    end
   end
 
   # GET: /users/5
