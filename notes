@@ -17,3 +17,21 @@ params => {"date"=>"5/15/2020",
    {"value"=>"2", "quantity"=>""},
    {"value"=>"3", "quantity"=>""},
    {"value"=>"2", "quantity"=>""}]}
+
+   <li>
+    Quantity:<input type="number" id="quantity" name="excercise_ids[][quantity]" value=0>
+    </li><br>
+
+    <li>
+    <input type="hidden" name= "excercise_ids[][value]" value=<%= e.value %>>     
+    </li> 
+
+
+
+
+    <% @excercises.each do |e| %>
+    <li>
+    <input type="checkbox" name="excercise_ids[]" value=<%= e.id %>><%= e.name %>  Value = <%=e.value%>
+    </li>
+       
+  <%end%>

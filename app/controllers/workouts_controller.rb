@@ -16,9 +16,8 @@ class WorkoutsController < ApplicationController
   end
 
   # POST: /workouts
-  post "/workouts" do
-    binding.pry
-    @workout = current_user.workouts.build(date: params[:date])  
+  post "/workouts" do 
+    @workout = current_user.workouts.build(params)  
     # @workout = Workout.new(date: params[:date], user_id: session[:user_id])
     # if !@workout.date.empty?
     if @workout.save
@@ -43,14 +42,16 @@ end
   # GET: /workouts/5/edit
   get "/workouts/:id/edit" do
     require_login
+    @excercises = Excercise.all
     @workout = Workout.find(params[:id])
     erb :"/workouts/edit.html"
   end
 
   # PATCH: /workouts/5
-  patch "/workouts/:id" do
-    workout = Workout.find(params[:id])
-    workout.update(date: params[:workout][:date])
+  patch "/workouts/:id/edit" do
+    binding.pry
+    @workout = Workout.find(params[:id])
+    @workout.update(date: params[:workout][:date], excercise_ids: params[:excercise_ids])
     redirect "/workouts"
   end
 

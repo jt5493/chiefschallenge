@@ -1,5 +1,9 @@
 <h1>Workout Date: <%= @workout.date %><h1>
-
+<h2><ul>
+<% @workout.excercises.each do |e|%>
+    <li><%= e.name %></li>
+<% end %>
+</ul></h2>
 <form action="/workouts/<%= @workout.id %>/delete" method="POST">
     <input type="hidden" name="_method" value="delete">
     <input type="submit" value="Delete"> 
