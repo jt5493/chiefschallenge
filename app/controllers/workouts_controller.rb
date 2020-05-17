@@ -16,10 +16,11 @@ class WorkoutsController < ApplicationController
   end
 
   # POST: /workouts
-  post "/workouts" do  
-    @workout = Workout.new(date: params[:date], user_id: session[:user_id])
-    if !@workout.date.empty?
-      @workout.save
+  post "/workouts" do
+    @workout = current_user.workouts.build(date: params[:date])  
+    # @workout = Workout.new(date: params[:date], user_id: session[:user_id])
+    # if !@workout.date.empty?
+    if @workout.save
       redirect "/workouts"
     else
       @error = "Please enter a date."
