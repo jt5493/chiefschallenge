@@ -24,16 +24,12 @@ class UsersController < ApplicationController
   # POST: /users
   post "/signup" do
     @user = User.new(params)
-    if @user.name.empty? || @user.password.empty?
-      @error = "Username and password need to be filled in."
-      erb :"/signup"
-    elsif User.find_by(name: @user.name)
-      @error = "That account exists already."
-      erb :"/signup"
-    else 
-      @user.save 
+    if @user.save
       session[:user_id] = @user.id     
-      redirect "/workouts"
+      redirect "/workouts"      
+    else 
+      @error = "Invalid or username already in use."
+      erb :"/users/signup.html"
     end
   end
 

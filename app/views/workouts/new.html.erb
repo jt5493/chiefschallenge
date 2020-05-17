@@ -3,9 +3,13 @@
 
 <form action="/workouts" method="POST">
   <label>Workout Date:</label>
-  <input type="text" name="date">
-
+  <input type="text" name="date"><br>
   <br>
+  <%@excercises.each do |e|%>
+    <li>
+      <%=e.name%>    Value =  <%=e.value%>
+    </li><br>
+  <%end%>
   
 
 

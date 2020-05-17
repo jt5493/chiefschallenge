@@ -2,6 +2,7 @@ class WorkoutsController < ApplicationController
 
   # GET: /workouts
   get "/workouts" do
+    require_login
     user = User.find_by_id(session[:user_id])
     @workouts = user.workouts
     erb :"/workouts/index.html"                                           
@@ -9,15 +10,16 @@ class WorkoutsController < ApplicationController
 
   # GET: /workouts/new
   get "/workouts/new" do
+    require_login
     @excercises = Excercise.all
     erb :"/workouts/new.html"
   end
 
   # POST: /workouts
-  post "/workouts" do    
-    workout = Workout.new(date: params[:date], user_id: session[:user_id])
-    if !workout.date.empty?
-      workout.save
+  post "/workouts" do   
+    @workout = Workout.new(date: params[:date], user_id: session[:user_id])
+    if !@workout.date.empty?
+      @workout.save
       redirect "/workouts"
     else
       @error = "Please enter a date."
@@ -27,13 +29,18 @@ class WorkoutsController < ApplicationController
 
   # GET: /workouts/5
   get "/workouts/:id" do
-    
-    @workout = Workout.find(params[:id])
-    erb :"/workouts/show.html"
-  end
+    require_login
+    @workout = Workout.find_by(params[:id])
+    if @workout
+      erb :"/workouts/show.html"
+    else
+      redirect '/workouts'
+    end
+end
 
   # GET: /workouts/5/edit
   get "/workouts/:id/edit" do
+    require_login
     @workout = Workout.find(params[:id])
     erb :"/workouts/edit.html"
   end
