@@ -1,13 +1,10 @@
 <h1>Here are your workouts. Not Bad...<h1>
 
-    
+<h2><a href="/workouts/new">Create new workout</a></h2>   
 
-        <h2><a href="/workouts/new">Create new workout</a></h2>
-        
-<% @workouts.each do |w| %>
-        <h3>Date:<a href="/workouts/<%= w.id %>"><%= w.date %></a><h3>
-        <h3>Total points:<%= w.points_total %><h3>
-        <a href="/workouts/<%=w.id%>/edit">Edit</a> 
-        
-        
-<% end %>
+                
+        <% @workouts.each do |w| %>
+                <h3>Date:<a href="/workouts/<%= w.id %>"><%= w.date %></a><h3>
+                <h3>Total points:<%= w.points_total %><h3>
+                <a href="/workouts/<%=w.id%>/edit">Edit</a>         
+        <% end %>
