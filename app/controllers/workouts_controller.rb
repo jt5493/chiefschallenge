@@ -17,6 +17,7 @@ class WorkoutsController < ApplicationController
 
   # POST: /workouts
   post "/workouts" do
+    binding.pry
     @workout = current_user.workouts.build(date: params[:date])  
     # @workout = Workout.new(date: params[:date], user_id: session[:user_id])
     # if !@workout.date.empty?

@@ -1,0 +1,19 @@
+params => {"name" => "Vic",
+    "courses" => 
+    [{"name" => "AP US History", "topic" => "History"},
+     {"name" => "AP Human Geography", "topic" => "History"}]}}
+
+
+params => {"date"=>"5/15/2020",
+ "excercise_ids"=>
+  [{"id"=>"1", "value"=>"3", "quantity"=>"1"},
+   {"id"=>"2", "value"=>"3", "quantity"=>"1"},
+   {"id"=>"3", "value"=>"1", "quantity"=>"1"},
+   {"value"=>"2", "quantity"=>""},
+   {"value"=>"3", "quantity"=>""},
+   {"value"=>"3", "quantity"=>""},
+   {"value"=>"1", "quantity"=>""},
+   {"value"=>"3", "quantity"=>""},
+   {"value"=>"2", "quantity"=>""},
+   {"value"=>"3", "quantity"=>""},
+   {"value"=>"2", "quantity"=>""}]}

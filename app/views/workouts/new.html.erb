@@ -7,16 +7,15 @@
   <br>
   <% @excercises.each do |e| %>
     <li>
-    <input type="checkbox" name="excercise[name]" value=<%= e.name %>><%= e.name %>  Value = <%=e.value%>
+    <input type="hidden" name="excercise_ids[][id]" value=<%= e.id %>><%= e.name %>  Value = <%=e.value%>
     </li>
     <li>
-    <input type="hidden" name= "excercise[value]" value=<%= e.value %>>
+    <input type="hidden" name= "excercise_ids[][id][value]" value=<%= e.value %>>
      
     </li>
     <li>
-    Quantity:<input type="number" id="quantity" name="excercise[quantity]">
+    Quantity:<input type="number" id="quantity" name="excercise_ids[][id][quantity]" value=0>
     </li><br>
-    
   <%end%>
 
 
