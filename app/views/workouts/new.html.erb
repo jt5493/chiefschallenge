@@ -5,14 +5,19 @@
   <label>Workout Date:</label>
   <input type="text" name="date"><br>
   <br>
-  <%@excercises.each do |e|%>
+  <% @excercises.each do |e| %>
     <li>
-      <%=e.name%>    Value =  <%=e.value%>
+    <input type="checkbox" name="excercise[name]" value=<%= e.name %>><%= e.name %>  Value = <%=e.value%>
+    </li>
+    <li>
+    <input type="hidden" name= "excercise[value]" value=<%= e.value %>>
+     
+    </li>
+    <li>
+    Quantity:<input type="number" id="quantity" name="excercise[quantity]">
     </li><br>
+    
   <%end%>
-  
-
-
 
 
 
