@@ -1,80 +1,30 @@
-# Project Title
+# Chiefs Challenge
 
-
+This application was made for the NAS Whidbey Island Naval Survival Training Center crew. During the Covid-19 shutdown, members of the armed forces are prohibited from doing physical training with each other so some members of this center created a program to help keep people motivated to stay in shape. I wanted to create this program to help the members keep track of their progress without having to do it manually with pen and paper.
 
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+* Fork and clone this repo to your local environment.
+* Run ```bundle install``` in your terminal
+* Type ```shotgun``` into your terminal
+* In your browser, visit localhost:9393, or the provided http: address given below ```shotgun``` in your terminal.
 
-### Prerequisites
-
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* Sinatra - The web framework
+* ActiveRecord - Database Management
 
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Jordon Terry** 
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## License
 
@@ -82,7 +32,8 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* Cohort lead, Juan, for helping me through some fun bugs.
+* My wonderful wife for supporting me through this project when I thought I couldn't do it!
+* Cohort mate, Jackson, for also helping me through some bugs while he was doing his own project.
+* Flatiron, for providing me the information I needed to complete this difficult project.
 
