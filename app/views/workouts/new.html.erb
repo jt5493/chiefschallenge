@@ -9,7 +9,10 @@
     <li>
     <input type="checkbox" name="excercise_ids[]" value=<%= e.id %>><%= e.name %>  Value = <%=e.value%>
     </li>
-       
+    <li>
+    Quantity:<input type="number" id="quantity" name="quantity[]" value=0>
+    </li><br>
+    <input type="hidden" name="value[]" value=<%= e.value %>>  
   <%end%>
 
 

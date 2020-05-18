@@ -17,7 +17,12 @@ class WorkoutsController < ApplicationController
 
   # POST: /workouts
   post "/workouts" do 
-    @workout = current_user.workouts.build(params)  
+    params[:quantity].delete_if{|x| x == "0"}
+    @quantity = params[:quantity]
+    @workout = Workout.find_or_create_by(date: params[:date], user_id: session[:user_id])
+    params[:excercise_ids].each do |e|
+      @workout.excercises << Excercise.find(e.to_i)
+    end
     # @workout = Workout.new(date: params[:date], user_id: session[:user_id])
     # if !@workout.date.empty?
     if @workout.save
@@ -31,7 +36,7 @@ class WorkoutsController < ApplicationController
   # GET: /workouts/5
   get "/workouts/:id" do
     require_login
-    @workout = Workout.find_by(params[:id])
+    @workout = Workout.find_by(id: params[:id])
     if @workout
       erb :"/workouts/show.html"
     else
