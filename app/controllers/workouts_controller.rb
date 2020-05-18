@@ -49,7 +49,6 @@ end
 
   # PATCH: /workouts/5
   patch "/workouts/:id/edit" do
-    binding.pry
     @workout = Workout.find(params[:id])
     @workout.update(date: params[:workout][:date], excercise_ids: params[:excercise_ids])
     redirect "/workouts"
